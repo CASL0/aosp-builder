@@ -48,13 +48,12 @@ Android OS ビルド用の VM を構築します。
 https://source.android.com/docs/setup/start?hl=ja
 
 <!-- BEGIN_TF_DOCS -->
-
 ## Requirements
 
-| Name                                                                     | Version |
-| ------------------------------------------------------------------------ | ------- |
-| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 1.0  |
-| <a name="requirement_aws"></a> [aws](#requirement_aws)                   | >= 5.00 |
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.00 |
 
 ## Providers
 
@@ -62,9 +61,9 @@ No providers.
 
 ## Modules
 
-| Name                                                                       | Source | Version |
-| -------------------------------------------------------------------------- | ------ | ------- |
-| <a name="module_aws_resources"></a> [aws_resources](#module_aws_resources) | ./aws  | n/a     |
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_aws_resources"></a> [aws\_resources](#module\_aws\_resources) | ./aws | n/a |
 
 ## Resources
 
@@ -77,5 +76,4 @@ No inputs.
 ## Outputs
 
 No outputs.
-
 <!-- END_TF_DOCS -->

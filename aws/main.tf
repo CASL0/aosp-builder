@@ -74,6 +74,31 @@ module "ssh_security_group" {
   ingress_cidr_blocks = ["0.0.0.0/0"]
   ingress_rules       = ["ssh-tcp"]
 
+  tags = local.tags
+}
+
+module "rdp_security_group" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "~> 5.0"
+
+  name        = "rdp-access"
+  description = "Security group that allows RDP access"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress_cidr_blocks = ["0.0.0.0/0"]
+  ingress_rules       = ["rdp-tcp"]
+
+  tags = local.tags
+}
+
+module "outbound_security_group" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "~> 5.0"
+
+  name        = "outbound-access"
+  description = "Security group that allows all outbound"
+  vpc_id      = module.vpc.vpc_id
+
   egress_rules = ["all-all"]
 
   tags = local.tags
@@ -88,9 +113,13 @@ module "ec2" {
   instance_type = "m7i-flex.8xlarge"
   key_name      = "ec2-key"
 
-  availability_zone           = element(module.vpc.azs, 0)
-  subnet_id                   = element(module.vpc.public_subnets, 0)
-  vpc_security_group_ids      = [module.ssh_security_group.security_group_id]
+  availability_zone = element(module.vpc.azs, 0)
+  subnet_id         = element(module.vpc.public_subnets, 0)
+  vpc_security_group_ids = [
+    module.ssh_security_group.security_group_id,
+    module.rdp_security_group.security_group_id,
+    module.outbound_security_group.security_group_id
+  ]
   associate_public_ip_address = true
 
   user_data_base64            = base64encode(local.user_data)
