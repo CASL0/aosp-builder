@@ -39,7 +39,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-arm64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
   }
 
   filter {
@@ -85,7 +85,7 @@ module "ec2" {
 
   name          = local.name
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "m7g.8xlarge"
+  instance_type = "m7i-flex.8xlarge"
   key_name      = "ec2-key"
 
   availability_zone           = element(module.vpc.azs, 0)
