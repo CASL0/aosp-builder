@@ -1,3 +1,3 @@
 module "aws_resources" {
-  source = "./aws"
+  source = "./modules/aws"
 }
