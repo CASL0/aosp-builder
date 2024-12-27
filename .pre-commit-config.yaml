@@ -13,3 +13,4 @@ repos:
         files: \.tf$
         args:
           - --args=--config=.terraform-docs.yml
+          - --args=--lockfile=false
