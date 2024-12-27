@@ -1,5 +1,11 @@
 # AWS Terraform サブモジュール
 
+AWS 上に AOSP ビルド用に EC2 を構築します。
+
+OS は Ubuntu 22.04（amd64）です。
+
+※arm 系の CPU は`lunch`コマンド等が機能しません。
+
 <!-- prettier-ignore-start -->
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
