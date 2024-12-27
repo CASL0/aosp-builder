@@ -106,7 +106,7 @@ module "ec2" {
 
   name          = local.name
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "m7i-flex.8xlarge"
+  instance_type = var.instance_type
   key_name      = "ec2-key"
 
   availability_zone = element(module.vpc.azs, 0)

@@ -3,3 +3,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "instance_type" {
+  description = "EC2インスタンスタイプ"
+  type        = string
+  default     = "m7i-flex.8xlarge"
+}

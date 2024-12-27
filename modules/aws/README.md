@@ -33,6 +33,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | EC2インスタンスタイプ | `string` | `"m7i-flex.8xlarge"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | 各リソースに付与するタグ | `map(string)` | `{}` | no |
 
 ## Outputs
