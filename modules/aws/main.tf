@@ -26,10 +26,6 @@ locals {
     curl -o /usr/bin/repo https://storage.googleapis.com/git-repo-downloads/repo
     chmod a+x /usr/bin/repo
   EOF
-
-  tags = {
-    Terraform = "true"
-  }
 }
 
 data "aws_availability_zones" "available" {}
@@ -60,7 +56,7 @@ module "vpc" {
   azs            = local.azs
   public_subnets = [for k, v in local.azs : cidrsubnet(local.cidr, 4, k)]
 
-  tags = local.tags
+  tags = var.tags
 }
 
 module "ssh_security_group" {
@@ -74,7 +70,7 @@ module "ssh_security_group" {
   ingress_cidr_blocks = ["0.0.0.0/0"]
   ingress_rules       = ["ssh-tcp"]
 
-  tags = local.tags
+  tags = var.tags
 }
 
 module "rdp_security_group" {
@@ -88,7 +84,7 @@ module "rdp_security_group" {
   ingress_cidr_blocks = ["0.0.0.0/0"]
   ingress_rules       = ["rdp-tcp"]
 
-  tags = local.tags
+  tags = var.tags
 }
 
 module "outbound_security_group" {
@@ -101,7 +97,7 @@ module "outbound_security_group" {
 
   egress_rules = ["all-all"]
 
-  tags = local.tags
+  tags = var.tags
 }
 
 module "ec2" {
@@ -133,5 +129,5 @@ module "ec2" {
     },
   ]
 
-  tags = local.tags
+  tags = var.tags
 }
