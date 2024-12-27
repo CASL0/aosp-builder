@@ -90,6 +90,8 @@ No inputs.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ssh"></a> [ssh](#output\_ssh) | ssh command |
 <!-- END_TF_DOCS -->
 <!-- prettier-ignore-end -->
