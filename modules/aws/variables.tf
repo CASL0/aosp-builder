@@ -9,3 +9,9 @@ variable "instance_type" {
   type        = string
   default     = "m7i-flex.8xlarge"
 }
+
+variable "ec2_key_pair" {
+  description = "EC2のキーペア"
+  type        = string
+  default     = "ec2-key"
+}

@@ -33,6 +33,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_ec2_key_pair"></a> [ec2\_key\_pair](#input\_ec2\_key\_pair) | EC2のキーペア | `string` | `"ec2-key"` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | EC2インスタンスタイプ | `string` | `"m7i-flex.8xlarge"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | 各リソースに付与するタグ | `map(string)` | `{}` | no |
 

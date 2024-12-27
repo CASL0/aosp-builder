@@ -107,7 +107,7 @@ module "ec2" {
   name          = local.name
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  key_name      = "ec2-key"
+  key_name      = var.ec2_key_pair
 
   availability_zone = element(module.vpc.azs, 0)
   subnet_id         = element(module.vpc.public_subnets, 0)
